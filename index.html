@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcalWmr3-0jezL9lYAa9Gxl__JNjjb4u_qfQ&s'); /* Image URL */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .banner {
+            font-size: 4em;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+            margin-bottom: 30px;
+            color: #FFEB3B; /* Bright yellow for visibility */
+        }
+
+        #name {
+            color: white; /* Light cyan for the birthday boy's name */
+        }
+
+        .images {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .images img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .images img:hover {
+            transform: scale(1.1);
+        }
+
+        .message {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #FFEB3B; /* Bright yellow for message text */
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 1.5em;
+            background-color: #FFEB3B;
+            border: none;
+            color: black;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        button:hover {
+            background-color: #FF7F00;
+        }
+
+    
+
+        /* Confetti animation */
+        .confetti {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            background-color: #FFEB3B;
+            opacity: 0;
+            animation: confetti 2s ease-in-out infinite ;
+            
+        }
+
+        @keyframes confetti {
+            0% { transform: translateY(-100px); opacity: 1; }
+            100% { transform: translateY(500px); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="banner">
+            <h1>Happy Birthday, <span id="name">Sujal</span>!</h1>
+        </div>
+
+        <div class="images">
+            <img src="https://media.licdn.com/dms/image/v2/D4D03AQH6MXmr5U3dgg/profile-displayphoto-shrink_200_200/B4DZSivOX3GkAc-/0/1737897077615?e=2147483647&v=beta&t=ycGYXfLrHNcnFwcxT_LguYWbwoyjXesWozqAC4aKcIw" alt="Birthday Boy" id="image1">
+            <img src="https://media.licdn.com/dms/image/sync/v2/D4D27AQEWUBF93Sa3pA/articleshare-shrink_800/articleshare-shrink_800/0/1711178566735?e=2147483647&v=beta&t=plPTeSWxto0HcBbeWf8Kghqx_2O4RBOL9QAPSAcqIN4" alt="Birthday Boy" id="image2">
+        </div>
+
+        <div class="message">
+            <h2>Wishing you a day filled with love, joy, and happiness!</h2>
+            <button id="animateBtn">Let’s Celebrate!</button>
+        </div>
+    </div>
+
+    
+    <script>
+        document.getElementById("animateBtn").addEventListener("click", function() {
+            // Create Confetti effect
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement("div");
+                confetti.classList.add("confetti");
+                document.body.appendChild(confetti);
+
+                // Randomize the starting position and delay
+                confetti.style.left = ${Math.random() * window.innerWidth}px;
+                confetti.style.animationDelay = ${Math.random() * 2}s;
+
+                // Remove confetti after the animation ends
+                setTimeout(() => {
+                    confetti.remove();
+                }, 20000); // 2.5 seconds to allow the animation to complete
+            }
+        });
+    </script>
+
+</body>
+</html>
